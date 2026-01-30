@@ -1,6 +1,8 @@
+import 'package:ai_chat_app/core/state_mangment/HomeProvider/home_provider.dart';
 import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/SignInProvider/signInProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/SignUpProvider/signUpProvider.dart';
+import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
 import 'package:ai_chat_app/view/dashboard/main_menu/main_menu.dart';
 import 'package:ai_chat_app/view/onboarding_view/page1.dart';
 import 'package:ai_chat_app/view/splash_screen/splash_view.dart';
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SignInProvider()),
         ChangeNotifierProvider(create: (_) => SignUpProvider()),
         ChangeNotifierProvider(create: (_) => MainMnuprovider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: const Page1(),
+        child: Page1(),
       ),
     );
   }

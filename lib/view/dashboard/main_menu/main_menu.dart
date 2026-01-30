@@ -1,7 +1,7 @@
 import 'package:ai_chat_app/core/const/app_icons.dart';
 import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
 import 'package:ai_chat_app/view/dashboard/history_page/history_page.dart';
-import 'package:ai_chat_app/view/dashboard/home_page/home_screen.dart';
+import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
 import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
 import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +52,13 @@ class MainMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(AppIcons().i9, width: 30),
+                          Image.asset(
+                            AppIcons().i9,
+                            width: 30,
+                            color: provider.selectedIndex == 0
+                                ? Colors.white
+                                : Color(0xff8DBFF1),
+                          ),
 
                           Text(
                             'Home',
@@ -81,7 +87,13 @@ class MainMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(AppIcons().i10, width: 30),
+                          Image.asset(
+                            AppIcons().i10,
+                            width: 30,
+                            color: provider.selectedIndex == 1
+                                ? Colors.white
+                                : Color(0xff8DBFF1),
+                          ),
                           SizedBox(height: 5),
                           Text(
                             'History',
@@ -110,7 +122,13 @@ class MainMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(AppIcons().i11, width: 30),
+                          Image.asset(
+                            AppIcons().i11,
+                            width: 30,
+                            color: provider.selectedIndex == 2
+                                ? Colors.white
+                                : Color(0xff8DBFF1),
+                          ),
 
                           Text(
                             'Premium',
@@ -139,7 +157,13 @@ class MainMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.asset(AppIcons().i12, width: 30),
+                          Image.asset(
+                            AppIcons().i12,
+                            width: 30,
+                            color: provider.selectedIndex == 3
+                                ? Colors.white
+                                : Color(0xff8DBFF1),
+                          ),
 
                           SizedBox(height: 5),
                           Text(

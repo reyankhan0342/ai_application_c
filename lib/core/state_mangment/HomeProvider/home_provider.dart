@@ -1,12 +1,12 @@
-import 'dart:ffi';
-
 import 'package:ai_chat_app/view/dashboard/history_page/history_page.dart';
-import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
-import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
-import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/check_grameer/check_grammer_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/code/code_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/newchat/newchat.dart';
+import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/searchImage/serach_by_image.dart';
 import 'package:flutter/material.dart';
 
-class MainMnuprovider extends ChangeNotifier {
+class HomeProvider extends ChangeNotifier {
   int selectedIndex = 0;
 
   bool _isLoading = false;
@@ -30,7 +30,13 @@ class MainMnuprovider extends ChangeNotifier {
   }
 
   void Screens() {
-    screenList = [HomeScreen(), HistoryPage(), PremiumPage(), ProfileScreen()];
+    screenList = [
+      VoiceSpeach(),
+      NewchatScreen(),
+      SerachByImageScreen(),
+      CodeSearchScreen(),
+      CheckGrammerScreen(),
+    ];
   }
 
   Future<void> changeScreen(int index) async {
