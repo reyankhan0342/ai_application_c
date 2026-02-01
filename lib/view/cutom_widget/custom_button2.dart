@@ -31,6 +31,7 @@ class CustomButton2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(icon, size: 20),
+
             SizedBox(width: 16),
             Text(
               "${title}",

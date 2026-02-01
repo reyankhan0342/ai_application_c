@@ -11,7 +11,6 @@ class MainMnuprovider extends ChangeNotifier {
 
   bool _isLoading = false;
   bool get isLoading => _isLoading;
-
   late List screenList;
 
   MainMnuprovider() {

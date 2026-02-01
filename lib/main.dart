@@ -2,12 +2,12 @@ import 'package:ai_chat_app/core/state_mangment/HomeProvider/home_provider.dart'
 import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/SignInProvider/signInProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/SignUpProvider/signUpProvider.dart';
-import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
-import 'package:ai_chat_app/view/dashboard/main_menu/main_menu.dart';
-import 'package:ai_chat_app/view/onboarding_view/page1.dart';
+import 'package:ai_chat_app/core/state_mangment/onboarding_provider.dart';
+import 'package:ai_chat_app/view/onboarding_view/onboarding_page.dart';
 import 'package:ai_chat_app/view/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_x/get.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SignInProvider()),
         ChangeNotifierProvider(create: (_) => SignUpProvider()),
         ChangeNotifierProvider(create: (_) => MainMnuprovider()),
+        ChangeNotifierProvider(create: (_) => OnboardingProvider()),
+
         ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],
       child: ScreenUtilInit(
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'AI ChatApp',
             theme: ThemeData(
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: Page1(),
+        child: SplashView(),
       ),
     );
   }
