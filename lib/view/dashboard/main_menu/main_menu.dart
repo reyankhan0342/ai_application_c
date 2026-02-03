@@ -9,6 +9,7 @@ import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
 import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class MainMenu extends StatelessWidget {
@@ -23,6 +24,7 @@ class MainMenu extends StatelessWidget {
     return Consumer<MainMnuprovider>(
       builder: (BuildContext context, provider, Widget? child) {
         return Scaffold(
+          backgroundColor: Colors.blue,
           bottomNavigationBar: Container(
             margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
             decoration: BoxDecoration(
@@ -33,7 +35,7 @@ class MainMenu extends StatelessWidget {
                 bottomRight: Radius.circular(17),
               ),
 
-              color: Colors.blueAccent,
+              color: Colors.blue,
             ),
             width: screenWidth,
             height: 80,
@@ -192,7 +194,11 @@ class MainMenu extends StatelessWidget {
 
           body: provider.isLoading == true
               ? Center(
-                  child: CircularProgressIndicator(color: Colors.blueAccent),
+                  child: SpinKitCircle(
+                    color: Colors.black,
+                    size: 60.0,
+                    duration: Duration(milliseconds: 1200),
+                  ),
                 )
               : provider.selectedIndex == 4
               ? VoiceSpeach()

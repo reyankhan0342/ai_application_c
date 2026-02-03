@@ -84,7 +84,7 @@ class _VoiceSpeachState extends State<VoiceSpeach> {
 
                 child: SingleChildScrollView(
                   child: Text(
-                    Lanauge().message,
+                    AppString().message,
                     style: GoogleFonts.roboto(
                       textStyle: TextStyle(
                         fontSize: 13.sp,

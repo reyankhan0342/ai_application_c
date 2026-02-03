@@ -1,4 +1,4 @@
-class Lanauge {
+class AppString {
   final String chatDescrition =
       ''' Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
 For example, in the code above, the select box has four options with values "value1", "value2",Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
