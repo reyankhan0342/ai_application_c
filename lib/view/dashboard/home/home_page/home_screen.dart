@@ -1,11 +1,15 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:developer';
+
 import 'package:ai_chat_app/core/const/app_icons.dart';
 import 'package:ai_chat_app/core/state_mangment/HomeProvider/home_provider.dart';
+import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
 import 'package:ai_chat_app/view/cutom_widget/home_custom_card.dart';
 import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,6 +17,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = Provider.of<MainMnuprovider>(context, listen: false);
     return Consumer<HomeProvider>(
       builder: (BuildContext context, provider, Widget? child) {
         return Scaffold(
@@ -20,361 +25,404 @@ class HomeScreen extends StatelessWidget {
               ? VoiceSpeach()
               : Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Hi, Lesa',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(height: 6),
-                        Text(
-                          'Let’s see what I can do for you?',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
-                        ),
-
-                        SizedBox(height: 19),
-
-                        Row(
-                          children: [
-                            Container(
-                              width: 170.w,
-                              height: 185.h,
-                              decoration: BoxDecoration(
-                                color: Color(0XFF2B89DD),
-                                borderRadius: BorderRadius.circular(9),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.08),
-                                    blurRadius: 10,
-                                    spreadRadius: 1,
-                                    offset: const Offset(0, 4),
-                                  ),
-                                ],
+                  child: SafeArea(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 20.h),
+                          Text(
+                            'Hi, Lesa',
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(12),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-                                      width: 38,
-                                      height: 38,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.grey.withOpacity(0.5),
-                                      ),
-                                      child: Image.asset(
-                                        AppIcons().record,
-                                        width: 28,
-                                      ),
-                                    ),
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Text(
+                            'Let’s see what I can do for you?',
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
 
-                                    SizedBox(height: 23.h),
-                                    Text(
-                                      'let’s find new things using voice recording',
-                                      style: TextStyle(
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(height: 13.h),
-                                    Flexible(
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          provider.changeScreen(1);
-                                        },
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          width: 100.w,
-                                          height: 60,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius: BorderRadius.circular(
-                                              8,
-                                            ),
-                                            border: Border.all(
-                                              color: Colors.blueAccent,
-                                              width: 1,
-                                            ),
-                                          ),
-                                          child: Text(
-                                            'Start Recording ',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.blueAccent,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                          SizedBox(height: 10.h),
+
+                          Row(
+                            children: [
+                              Container(
+                                width: 170.w,
+                                height: 185.h,
+                                decoration: BoxDecoration(
+                                  color: Color(0XFF2B89DD),
+                                  borderRadius: BorderRadius.circular(9),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.08),
+                                      blurRadius: 10,
+                                      spreadRadius: 1,
+                                      offset: const Offset(0, 4),
                                     ),
                                   ],
                                 ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        alignment: Alignment.center,
+                                        width: 38,
+                                        height: 38,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.grey.withOpacity(0.5),
+                                        ),
+                                        child: Image.asset(
+                                          AppIcons().record,
+                                          width: 28,
+                                        ),
+                                      ),
+
+                                      SizedBox(height: 23.h),
+                                      Text(
+                                        'let’s find new \n things using \n voice recording',
+                                        style: GoogleFonts.roboto(
+                                          textStyle: TextStyle(
+                                            fontSize: 16.sp,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(height: 13.h),
+                                      Flexible(
+                                        child: GestureDetector(
+                                          onTap: () async {
+                                            log(
+                                              ' start recording tap ===>>>>> ',
+                                            );
+                                            await model.changeScreen(4);
+                                          },
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: 120.w,
+                                            height: 60,
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              border: Border.all(
+                                                color: Colors.blueAccent,
+                                                width: 1,
+                                              ),
+                                            ),
+                                            child: Text(
+                                              'Start Recording ',
+                                              style: GoogleFonts.roboto(
+                                                textStyle: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  color: Colors.blueAccent,
+
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 25.w),
-                            Column(
-                              children: [
-                                Container(
-                                  width: 140.w,
-                                  height: 90.h,
-                                  decoration: BoxDecoration(
-                                    color: Color(0XFF2B89DD),
-                                    borderRadius: BorderRadius.circular(9),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.08),
-                                        blurRadius: 10,
-                                        spreadRadius: 1,
-                                        offset: const Offset(0, 4),
+                              SizedBox(width: 25.w),
+                              Column(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () async {
+                                      await model.changeScreen(5);
+                                    },
+                                    child: Container(
+                                      width: 140.w,
+                                      height: 90.h,
+                                      decoration: BoxDecoration(
+                                        color: Color(0XFF2B89DD),
+                                        borderRadius: BorderRadius.circular(9),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(
+                                              0.08,
+                                            ),
+                                            blurRadius: 10,
+                                            spreadRadius: 1,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 10,
-                                      left: 12,
-                                      right: 12,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 37,
-                                          height: 37,
-
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.grey.withOpacity(0.5),
-                                          ),
-                                          child: Image.asset(
-                                            AppIcons().mes,
-                                            width: 25,
-                                          ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 10,
+                                          left: 12,
+                                          right: 12,
                                         ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              alignment: Alignment.center,
+                                              width: 37,
+                                              height: 37,
 
-                                        SizedBox(height: 8.h),
-                                        Flexible(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Start New \n Chat',
-                                                style: TextStyle(
-                                                  fontSize: 13.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.grey.withOpacity(
+                                                  0.5,
                                                 ),
                                               ),
-                                              SizedBox(width: 20.w),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                  top: 13.0,
-                                                ),
-                                                child: Image.asset(
-                                                  AppIcons().arrow,
-                                                  width: 20,
-                                                ),
+                                              child: Image.asset(
+                                                AppIcons().mes,
+                                                width: 25,
                                               ),
-                                            ],
-                                          ),
+                                            ),
+
+                                            SizedBox(height: 8.h),
+                                            Flexible(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Start New \n Chat',
+                                                    style: GoogleFonts.roboto(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 14.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 20.w),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                          top: 13.0,
+                                                        ),
+                                                    child: Image.asset(
+                                                      AppIcons().arrow,
+                                                      width: 20,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(height: 12.h),
-                                Container(
-                                  width: 140.w,
-                                  height: 90.h,
-                                  decoration: BoxDecoration(
-                                    color: Color(0XFF2B89DD),
-                                    borderRadius: BorderRadius.circular(9),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(0.08),
-                                        blurRadius: 10,
-                                        spreadRadius: 1,
-                                        offset: const Offset(0, 4),
                                       ),
-                                    ],
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 10,
-                                      left: 12,
-                                      right: 12,
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          width: 37,
-                                          height: 37,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.grey.withOpacity(0.5),
-                                          ),
-                                          child: Image.asset(
-                                            AppIcons().i23,
-                                            width: 25,
-                                          ),
-                                        ),
-
-                                        SizedBox(height: 8.h),
-                                        Flexible(
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Search By \n Image',
-                                                style: TextStyle(
-                                                  fontSize: 13.sp,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                              SizedBox(width: 20.w),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                  top: 13.0,
-                                                ),
-                                                child: Image.asset(
-                                                  AppIcons().arrow,
-                                                  width: 20,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                                  SizedBox(height: 12.h),
+                                  GestureDetector(
+                                    onTap: () async {
+                                      await model.changeScreen(6);
+                                    },
+                                    child: Container(
+                                      width: 140.w,
+                                      height: 90.h,
+                                      decoration: BoxDecoration(
+                                        color: Color(0XFF2B89DD),
+                                        borderRadius: BorderRadius.circular(9),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(
+                                              0.08,
+                                            ),
+                                            blurRadius: 10,
+                                            spreadRadius: 1,
+                                            offset: const Offset(0, 4),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          top: 10,
+                                          left: 12,
+                                          right: 12,
+                                        ),
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              alignment: Alignment.center,
+                                              width: 37,
+                                              height: 37,
+                                              decoration: BoxDecoration(
+                                                shape: BoxShape.circle,
+                                                color: Colors.grey.withOpacity(
+                                                  0.5,
+                                                ),
+                                              ),
+                                              child: Image.asset(
+                                                AppIcons().i23,
+                                                width: 25,
+                                              ),
+                                            ),
 
-                        SizedBox(height: 25.h),
-                        Text(
-                          'Explore ',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                                            SizedBox(height: 8.h),
+                                            Flexible(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Search By \n Image',
+                                                    style: GoogleFonts.roboto(
+                                                      textStyle: TextStyle(
+                                                        fontSize: 14.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.white,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 20.w),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                          top: 13.0,
+                                                        ),
+                                                    child: Image.asset(
+                                                      AppIcons().arrow,
+                                                      width: 20,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                        ),
 
-                        SizedBox(height: 19.h),
+                          SizedBox(height: 20.h),
+                          Text(
+                            'Explore ',
+                            style: GoogleFonts.roboto(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              height: 1.0,
+                              letterSpacing: 0,
+                              color: Colors.black,
+                            ),
+                          ),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            HomeCustomCard(
-                              title: 'Code',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().code,
-                            ),
-                            HomeCustomCard(
-                              title: 'Check Grammar',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i4,
-                            ),
-                          ],
-                        ),
+                          SizedBox(height: 19.h),
 
-                        SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              HomeCustomCard(
+                                title: 'Code',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().code,
+                              ),
+                              HomeCustomCard(
+                                title: 'Check Grammar',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i4,
+                              ),
+                            ],
+                          ),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            HomeCustomCard(
-                              title: 'Content',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i5,
-                            ),
-                            HomeCustomCard(
-                              title: 'Mail ',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().mail,
-                            ),
-                          ],
-                        ),
+                          SizedBox(height: 15),
 
-                        SizedBox(height: 15),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              HomeCustomCard(
+                                title: 'Content',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i5,
+                              ),
+                              HomeCustomCard(
+                                title: 'Mail ',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().mail,
+                              ),
+                            ],
+                          ),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            HomeCustomCard(
-                              title: 'Essay',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i7,
-                            ),
-                            HomeCustomCard(
-                              title: 'Translator',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i8,
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 15),
+                          SizedBox(height: 15),
 
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            HomeCustomCard(
-                              title: 'Story Creator',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i14,
-                            ),
-                            HomeCustomCard(
-                              title: 'Text condenser',
-                              description:
-                                  'Write Programming code or algorithm for complex applications.',
-                              icon: AppIcons().i15,
-                            ),
-                          ],
-                        ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              HomeCustomCard(
+                                title: 'Essay',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i7,
+                              ),
+                              HomeCustomCard(
+                                title: 'Translator',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i8,
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 15),
 
-                        SizedBox(height: 20.h),
-                      ],
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              HomeCustomCard(
+                                title: 'Story Creator',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i14,
+                              ),
+                              HomeCustomCard(
+                                title: 'Text condenser',
+                                description:
+                                    'Write Programming code or algorithm for complex applications.',
+                                icon: AppIcons().i15,
+                              ),
+                            ],
+                          ),
+
+                          SizedBox(height: 20.h),
+                        ],
+                      ),
                     ),
                   ),
                 ),

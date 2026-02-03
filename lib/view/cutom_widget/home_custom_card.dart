@@ -1,6 +1,7 @@
 import 'package:ai_chat_app/core/const/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeCustomCard extends StatelessWidget {
   final String title;
@@ -45,20 +46,26 @@ class HomeCustomCard extends StatelessWidget {
             SizedBox(height: 8.h),
             Text(
               '${title.toString()}',
-              style: TextStyle(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w700,
-                color: Colors.black,
+              style: GoogleFonts.roboto(
+                textStyle: TextStyle(
+                  fontSize: 14.sp,
+                  letterSpacing: 1.0,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black,
+                ),
               ),
             ),
 
             SizedBox(height: 5.h),
             Text(
               '${description.toString()}',
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: Colors.black87,
+              style: GoogleFonts.roboto(
+                textStyle: TextStyle(
+                  fontSize: 12.sp,
+                  letterSpacing: 0.5,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black,
+                ),
               ),
             ),
           ],

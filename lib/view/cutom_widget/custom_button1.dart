@@ -1,44 +1,45 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class CustomButton1 extends StatelessWidget {
+class CustomButton1 extends StatefulWidget {
   final VoidCallback? onTap;
   final String? title;
-  String? icon;
 
-  CustomButton1({super.key, this.onTap, this.icon, this.title});
+  const CustomButton1({super.key, this.onTap, this.title});
+
+  @override
+  State<CustomButton1> createState() => _CustomButton1State();
+}
+
+class _CustomButton1State extends State<CustomButton1> {
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        alignment: Alignment.center,
-        width: 120.w,
-        height: 35.h,
-
-        decoration: BoxDecoration(
-          color: AppColor().blue,
-          borderRadius: BorderRadius.circular(7),
-        ),
-
+    return Material(
+      color: Colors.blue.shade600,
+      borderRadius: BorderRadius.circular(7),
+      elevation: _isPressed ? 2 : 6,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(7),
+        onTap: widget.onTap,
+        onTapDown: (_) => setState(() => _isPressed = true),
+        onTapUp: (_) => setState(() => _isPressed = false),
+        onTapCancel: () => setState(() => _isPressed = false),
+        splashColor: Colors.white.withOpacity(0.3),
+        highlightColor: Colors.transparent,
         child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "${title}",
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-
-              SizedBox(width: 5),
-            ],
+          alignment: Alignment.center,
+          width: 120.w,
+          height: 35.h,
+          child: Text(
+            widget.title ?? "",
+            style: GoogleFonts.roboto(
+              fontSize: 16.sp,
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ),

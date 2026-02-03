@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AuthCustomTextfield extends StatelessWidget {
   final String hintText;
@@ -46,10 +47,12 @@ class AuthCustomTextfield extends StatelessWidget {
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          hintStyle: TextStyle(
-            fontSize: 14.sp,
-            color: Colors.grey,
-            fontWeight: FontWeight.w500,
+          hintStyle: GoogleFonts.roboto(
+            textStyle: TextStyle(
+              fontSize: 15.sp,
+              color: Colors.grey,
+              fontWeight: FontWeight.w400,
+            ),
           ),
 
           hintText: hintText,
@@ -61,10 +64,7 @@ class AuthCustomTextfield extends StatelessWidget {
           suffixIcon: suffixIc != null
               ? InkWell(
                   onTap: visibility,
-                  child: Icon(
-                    suffixIc,
-                    color: obscureText == true ? Colors.black : Colors.blue,
-                  ),
+                  child: Icon(suffixIc, color: Colors.blue),
                 )
               : null,
           contentPadding: const EdgeInsets.symmetric(

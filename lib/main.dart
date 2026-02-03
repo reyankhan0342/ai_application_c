@@ -3,6 +3,7 @@ import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvide
 import 'package:ai_chat_app/core/state_mangment/SignInProvider/signInProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/SignUpProvider/signUpProvider.dart';
 import 'package:ai_chat_app/core/state_mangment/onboarding_provider.dart';
+import 'package:ai_chat_app/core/state_mangment/splash_provider.dart';
 import 'package:ai_chat_app/view/onboarding_view/onboarding_page.dart';
 import 'package:ai_chat_app/view/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SignUpProvider()),
         ChangeNotifierProvider(create: (_) => MainMnuprovider()),
         ChangeNotifierProvider(create: (_) => OnboardingProvider()),
+        ChangeNotifierProvider(create: (_) => SplashProvider()),
 
         ChangeNotifierProvider(create: (_) => HomeProvider()),
       ],

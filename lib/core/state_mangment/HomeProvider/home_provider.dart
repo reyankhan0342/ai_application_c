@@ -18,32 +18,12 @@ class HomeProvider extends ChangeNotifier {
     init();
   }
 
-  init() async {
-    Screens();
-  }
+  init() async {}
 
   void setLoading(bool value) {
     if (_isLoading != value) {
       _isLoading = value;
       notifyListeners();
     }
-  }
-
-  void Screens() {
-    screenList = [
-      VoiceSpeach(),
-      NewchatScreen(),
-      SerachByImageScreen(),
-      CodeSearchScreen(),
-      CheckGrammerScreen(),
-    ];
-  }
-
-  Future<void> changeScreen(int index) async {
-    setLoading(true);
-    await Future.delayed(Duration(seconds: 1));
-    selectedIndex = index;
-    setLoading(false);
-    notifyListeners();
   }
 }

@@ -9,10 +9,12 @@ class AppIcons {
   final i4 = 'assets/icons/4.png';
 
   final i5 = 'assets/icons/5.png';
+  final google = 'assets/icons/google.png';
 
   final i6 = 'assets/icons/6.png';
 
   final i7 = 'assets/icons/7.png';
+  final g12 = 'assets/icons/g12.png';
 
   final i8 = 'assets/icons/8.png';
   final i9 = 'assets/icons/9.png';

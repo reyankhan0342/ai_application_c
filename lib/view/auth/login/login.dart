@@ -123,24 +123,13 @@ class LoginScreen extends StatelessWidget {
                           CustomButton2(
                             height: 45.h,
                             width: screenWidth,
-
                             decoration: BoxDecoration(
                               color: Colors.white,
-
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
                                 color: Colors.blue,
                                 width: 0.9,
                               ),
-
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.08),
-                                  blurRadius: 10,
-                                  spreadRadius: 1,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
                             ),
                             title: 'Sign In ',
                             onTap: () {
@@ -150,7 +139,7 @@ class LoginScreen extends StatelessWidget {
                               );
                             },
                           ),
-                          SizedBox(height: 5),
+                          SizedBox(height: 15),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -199,7 +188,7 @@ class LoginScreen extends StatelessWidget {
 
                           SizedBox(height: 48.h),
                           CustomButton2(
-                            icon: Icons.abc,
+                            image: AppIcons().google!,
                             height: 45.h,
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -209,17 +198,8 @@ class LoginScreen extends StatelessWidget {
                                 color: Colors.blue,
                                 width: 0.9,
                               ),
-
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.08),
-                                  blurRadius: 10,
-                                  spreadRadius: 1,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
                             ),
-                            title: 'Se',
+                            title: 'Sign up with Google ',
                           ),
                         ],
                       ),

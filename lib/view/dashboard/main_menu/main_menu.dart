@@ -2,6 +2,9 @@ import 'package:ai_chat_app/core/const/app_icons.dart';
 import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
 import 'package:ai_chat_app/view/dashboard/history_page/history_page.dart';
 import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
+import 'package:ai_chat_app/view/dashboard/home/newchat/newchat.dart';
+import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/searchImage/serach_by_image.dart';
 import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
 import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +58,11 @@ class MainMenu extends StatelessWidget {
                           Image.asset(
                             AppIcons().i9,
                             width: 30,
-                            color: provider.selectedIndex == 0
+                            color:
+                                provider.selectedIndex == 0 ||
+                                    provider.selectedIndex == 4 ||
+                                    provider.selectedIndex == 5 ||
+                                    provider.selectedIndex == 6
                                 ? Colors.white
                                 : Color(0xff8DBFF1),
                           ),
@@ -187,6 +194,12 @@ class MainMenu extends StatelessWidget {
               ? Center(
                   child: CircularProgressIndicator(color: Colors.blueAccent),
                 )
+              : provider.selectedIndex == 4
+              ? VoiceSpeach()
+              : provider.selectedIndex == 5
+              ? NewchatScreen()
+              : provider.selectedIndex == 6
+              ? SerachByImageScreen()
               : provider.screenList[provider.selectedIndex],
         );
       },
