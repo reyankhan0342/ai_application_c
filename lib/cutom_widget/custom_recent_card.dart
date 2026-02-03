@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

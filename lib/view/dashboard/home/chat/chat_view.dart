@@ -1,11 +1,12 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
-import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class NewchatScreen extends StatelessWidget {
-  const NewchatScreen({super.key});
+class ChatView extends StatelessWidget {
+  const ChatView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +29,19 @@ class NewchatScreen extends StatelessWidget {
           ),
         ],
         title: Text(
-          'Speaking to ZAP!',
-          style: TextStyle(
-            fontSize: 18.sp,
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
+          'Chat with ZAP! ',
+          style: GoogleFonts.roboto(
+            textStyle: TextStyle(
+              fontSize: 18.sp,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ),
-      body: Column(children: [
-
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25),
+        child: Column(children: [SizedBox()]),
       ),
     );
   }

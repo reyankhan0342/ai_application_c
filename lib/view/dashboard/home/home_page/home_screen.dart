@@ -2,10 +2,10 @@
 
 import 'dart:developer';
 
-import 'package:ai_chat_app/core/const/app_icons.dart';
-import 'package:ai_chat_app/core/state_mangment/HomeProvider/home_provider.dart';
-import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
-import 'package:ai_chat_app/view/cutom_widget/home_custom_card.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/view_model/home_provider.dart';
+import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
+import 'package:ai_chat_app/cutom_widget/home_custom_card.dart';
 import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

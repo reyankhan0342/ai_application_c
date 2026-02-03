@@ -1,8 +1,8 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
-import 'package:ai_chat_app/core/state_mangment/SignInProvider/signInProvider.dart';
-import 'package:ai_chat_app/view/auth/signUp/sign_up.dart';
-import 'package:ai_chat_app/view/cutom_widget/custom_button2.dart';
-import 'package:ai_chat_app/view/cutom_widget/custom_textField.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/view_model/signInProvider.dart';
+import 'package:ai_chat_app/view/auth/signUp/sign_up_view.dart';
+import 'package:ai_chat_app/cutom_widget/custom_button2.dart';
+import 'package:ai_chat_app/cutom_widget/custom_textField.dart';
 import 'package:ai_chat_app/view/dashboard/main_menu/main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

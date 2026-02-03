@@ -1,9 +1,9 @@
-import 'package:ai_chat_app/core/state_mangment/HomeProvider/home_provider.dart';
-import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
-import 'package:ai_chat_app/core/state_mangment/SignInProvider/signInProvider.dart';
-import 'package:ai_chat_app/core/state_mangment/SignUpProvider/signUpProvider.dart';
-import 'package:ai_chat_app/core/state_mangment/onboarding_provider.dart';
-import 'package:ai_chat_app/core/state_mangment/splash_provider.dart';
+import 'package:ai_chat_app/view_model/home_provider.dart';
+import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
+import 'package:ai_chat_app/view_model/signInProvider.dart';
+import 'package:ai_chat_app/view_model/signUpProvider.dart';
+import 'package:ai_chat_app/view_model/onboarding_provider.dart';
+import 'package:ai_chat_app/view_model/splash_provider.dart';
 import 'package:ai_chat_app/view/onboarding_view/onboarding_page.dart';
 import 'package:ai_chat_app/view/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';

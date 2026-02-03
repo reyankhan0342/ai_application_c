@@ -1,8 +1,8 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
-import 'package:ai_chat_app/core/state_mangment/MainMenuProvider/MainMenuProvider.dart';
-import 'package:ai_chat_app/view/dashboard/history_page/history_page.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
+import 'package:ai_chat_app/view/dashboard/history_page/history_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
-import 'package:ai_chat_app/view/dashboard/home/newchat/newchat.dart';
+import 'package:ai_chat_app/view/dashboard/home/chat/chat_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
 import 'package:ai_chat_app/view/dashboard/home/searchImage/serach_by_image.dart';
 import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
@@ -197,7 +197,7 @@ class MainMenu extends StatelessWidget {
               : provider.selectedIndex == 4
               ? VoiceSpeach()
               : provider.selectedIndex == 5
-              ? NewchatScreen()
+              ? ChatView()
               : provider.selectedIndex == 6
               ? SerachByImageScreen()
               : provider.screenList[provider.selectedIndex],

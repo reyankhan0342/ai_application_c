@@ -1,4 +1,4 @@
-import 'package:ai_chat_app/view/auth/login/login.dart';
+import 'package:ai_chat_app/view/auth/login/login_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
 import 'package:ai_chat_app/view/onboarding_view/onboarding_page.dart';
 import 'package:ai_chat_app/view/splash_screen/splash_view.dart';

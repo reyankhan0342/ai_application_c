@@ -1,5 +1,5 @@
-import 'package:ai_chat_app/core/const/app_icons.dart';
-import 'package:ai_chat_app/view/auth/login/login.dart';
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/view/auth/login/login_view.dart';
 import 'package:ai_chat_app/view/onboarding_view/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_x/get.dart';
