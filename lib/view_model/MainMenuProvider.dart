@@ -1,9 +1,7 @@
-import 'dart:ffi';
-
-import 'package:ai_chat_app/view/dashboard/history_page/history_view.dart';
+import 'package:ai_chat_app/view/dashboard/history/history_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
-import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
-import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
+import 'package:ai_chat_app/view/dashboard/premium/premium_page.dart';
+import 'package:ai_chat_app/view/dashboard/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class MainMnuprovider extends ChangeNotifier {

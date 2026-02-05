@@ -1,12 +1,12 @@
 import 'package:ai_chat_app/core/constant/app_icons.dart';
 import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
-import 'package:ai_chat_app/view/dashboard/history_page/history_view.dart';
+import 'package:ai_chat_app/view/dashboard/history/history_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
 import 'package:ai_chat_app/view/dashboard/home/chat/chat_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
-import 'package:ai_chat_app/view/dashboard/home/searchImage/serach_by_image.dart';
-import 'package:ai_chat_app/view/dashboard/premium_page/premium_page.dart';
-import 'package:ai_chat_app/view/dashboard/profile_page/profile_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/img_search_view/serach_image_view.dart';
+import 'package:ai_chat_app/view/dashboard/premium/premium_page.dart';
+import 'package:ai_chat_app/view/dashboard/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

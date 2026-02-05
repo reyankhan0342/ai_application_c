@@ -12,6 +12,9 @@ class AppIcons {
   final google = 'assets/icons/google.png';
 
   final i6 = 'assets/icons/6.png';
+  final coin = 'assets/icons/coin.png';
+
+  final bg = 'assets/icons/bg.png';
 
   final i7 = 'assets/icons/7.png';
   final g12 = 'assets/icons/g12.png';
@@ -44,6 +47,13 @@ class AppIcons {
   final arrow = 'assets/icons/arrow.png';
   final code = 'assets/icons/code.png';
   final mail = 'assets/icons/mail.png';
+  final star = 'assets/icons/star.png';
+  final language = 'assets/icons/laguage.png';
+  final restor = 'assets/icons/restor.png';
+
+  final share = 'assets/icons/share.png';
+  final help = 'assets/icons/help.png';
+  final about = 'assets/icons/about.png';
 }
 
 class AppColor {

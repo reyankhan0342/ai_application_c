@@ -62,7 +62,10 @@ class HomeScreen extends StatelessWidget {
                                 width: 170.w,
                                 height: 185.h,
                                 decoration: BoxDecoration(
-                                  color: Color(0XFF2B89DD),
+                                  image: DecorationImage(
+                                    image: AssetImage(AppIcons().bg),
+                                    fit: BoxFit.cover,
+                                  ),
                                   borderRadius: BorderRadius.circular(9),
                                   boxShadow: [
                                     BoxShadow(
@@ -156,7 +159,10 @@ class HomeScreen extends StatelessWidget {
                                       width: 140.w,
                                       height: 90.h,
                                       decoration: BoxDecoration(
-                                        color: Color(0XFF2B89DD),
+                                        image: DecorationImage(
+                                          image: AssetImage(AppIcons().bg),
+                                          fit: BoxFit.cover,
+                                        ),
                                         borderRadius: BorderRadius.circular(9),
                                         boxShadow: [
                                           BoxShadow(
@@ -245,7 +251,10 @@ class HomeScreen extends StatelessWidget {
                                       width: 140.w,
                                       height: 90.h,
                                       decoration: BoxDecoration(
-                                        color: Color(0XFF2B89DD),
+                                        image: DecorationImage(
+                                          image: AssetImage(AppIcons().bg),
+                                          fit: BoxFit.cover,
+                                        ),
                                         borderRadius: BorderRadius.circular(9),
                                         boxShadow: [
                                           BoxShadow(
