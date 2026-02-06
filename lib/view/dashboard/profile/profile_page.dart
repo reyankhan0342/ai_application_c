@@ -4,6 +4,8 @@ import 'package:ai_chat_app/core/constant/app_icons.dart';
 import 'package:ai_chat_app/cutom_widget/custom_divider.dart';
 import 'package:ai_chat_app/cutom_widget/custom_recent_card.dart';
 import 'package:ai_chat_app/cutom_widget/profile_custom_card.dart';
+import 'package:ai_chat_app/view/dashboard/profile/sub_pages/help_center.dart';
+import 'package:ai_chat_app/view/dashboard/profile/sub_pages/language_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -186,9 +188,20 @@ class ProfileScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ProfileCustomCard(
-                      leadingIcon: AppIcons().language,
-                      title: 'Language',
+                    GestureDetector(
+                      onTap: () {},
+                      child: ProfileCustomCard(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LanguageView(),
+                            ),
+                          );
+                        },
+                        leadingIcon: AppIcons().language,
+                        title: 'Language',
+                      ),
                     ),
                     const CustomDivider(),
 
@@ -235,6 +248,12 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ProfileCustomCard(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HelpCenter()),
+                        );
+                      },
                       leadingIcon: AppIcons().help,
                       title: 'Help',
                     ),

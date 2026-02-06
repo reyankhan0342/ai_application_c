@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+import 'package:ai_chat_app/view/dashboard/main_menu/main_menu.dart';
 import 'package:ai_chat_app/view_model/home_provider.dart';
 import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
 import 'package:ai_chat_app/view_model/signInProvider.dart';
@@ -12,16 +14,6 @@ import 'package:get_x/get.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  void main() {
-    // runApp(s
-
-    //   DevicePreview(
-    //     enabled: true, // turn off in production
-    //     builder: (context) => const MyApp(),
-    //   ),
-    // );
-  }
-
   runApp(const MyApp());
 }
 
@@ -54,7 +46,7 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: SplashView(),
+        child: MainMenu(),
       ),
     );
   }
