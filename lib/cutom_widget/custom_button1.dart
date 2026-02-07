@@ -32,11 +32,11 @@ class _CustomButton1State extends State<CustomButton1> {
         child: Container(
           alignment: Alignment.center,
           width: 120.w,
-          height: 35.h,
+          height: 40.w,
           child: Text(
             widget.title ?? "",
             style: GoogleFonts.roboto(
-              fontSize: 16.sp,
+              fontSize: 16.w,
               color: Colors.white,
               fontWeight: FontWeight.w500,
             ),

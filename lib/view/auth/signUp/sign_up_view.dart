@@ -36,7 +36,7 @@ class SignUpScreen extends StatelessWidget {
                       'Complete Your Profile',
                       style: GoogleFonts.roboto(
                         textStyle: TextStyle(
-                          fontSize: 22.sp,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
                           color: Colors.white,
                         ),
@@ -44,7 +44,7 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     Container(
                       width: screenWidth,
-                      height: 250.h,
+                      height: 300.h,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(AppIcons().baccolor),
@@ -58,7 +58,7 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().img,
-                            width: 130.0.w,
+                            width: 140.0.w,
                             height: 100.h,
                           ),
                           SizedBox(height: 5),
@@ -66,7 +66,7 @@ class SignUpScreen extends StatelessWidget {
                           Text(
                             'ZAP',
                             style: TextStyle(
-                              fontSize: 25.sp,
+                              fontSize: 24.sp,
                               color: Colors.white,
                               letterSpacing: 5,
                               fontFamily: 'Bauhaus',
@@ -77,7 +77,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 20.h),
+                    SizedBox(height: 18.h),
 
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 43),

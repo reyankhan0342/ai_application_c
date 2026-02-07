@@ -11,6 +11,8 @@ class OnboardingPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Consumer<OnboardingProvider>(
       builder: (BuildContext context, provider, Widget? child) {
         return Scaffold(
@@ -20,11 +22,12 @@ class OnboardingPage1 extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
                 children: [
+                  SizedBox(height: 30.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(AppIcons().sp2, width: 45.w, height: 40.h),
+                      Image.asset(AppIcons().sp2),
                       SizedBox(width: 5),
 
                       Padding(
@@ -32,7 +35,7 @@ class OnboardingPage1 extends StatelessWidget {
                         child: Text(
                           'ZAP',
                           style: TextStyle(
-                            fontSize: 23.sp,
+                            fontSize: 20.sp,
                             letterSpacing: 5,
                             fontFamily: 'Bauhaus',
                             color: const Color(0xff318CE7),
@@ -56,11 +59,7 @@ class OnboardingPage1 extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(height: 30.h),
-                            Image.asset(
-                              data['image']!,
-                              width: 300.w,
-                              height: 300.h,
-                            ),
+                            Image.asset(data['image']!, width: 250.w),
                             SizedBox(height: 30.h),
                             Text(
                               data['title']!,
@@ -96,14 +95,16 @@ class OnboardingPage1 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
                       provider.onboardingData.length,
-                      (index) => Container(
+                      (index) => AnimatedContainer(
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeInOut,
                         margin: const EdgeInsets.symmetric(horizontal: 4),
                         width: provider.currentPage == index ? 20.w : 8.w,
                         height: 8.h,
                         decoration: BoxDecoration(
                           color: provider.currentPage == index
-                              ? Color(0xff2B89DD)
-                              : Colors.grey,
+                              ? const Color(0xff2B89DD)
+                              : Colors.grey.shade400,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),

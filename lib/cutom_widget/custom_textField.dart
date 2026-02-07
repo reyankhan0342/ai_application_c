@@ -49,7 +49,7 @@ class AuthCustomTextfield extends StatelessWidget {
           fillColor: Colors.white,
           hintStyle: GoogleFonts.roboto(
             textStyle: TextStyle(
-              fontSize: 15.sp,
+              fontSize: 13.w,
               color: Colors.grey,
               fontWeight: FontWeight.w400,
             ),

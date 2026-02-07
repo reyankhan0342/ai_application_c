@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart' show SizeExtension;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomButton2 extends StatefulWidget {
@@ -57,8 +58,8 @@ class _CustomButton2State extends State<CustomButton2> {
 
               Text(
                 widget.title ?? '',
-                style: const TextStyle(
-                  fontSize: 15,
+                style: TextStyle(
+                  fontSize: 15.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
                 ),

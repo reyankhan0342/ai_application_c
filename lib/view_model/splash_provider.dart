@@ -18,7 +18,7 @@ class SplashProvider extends ChangeNotifier {
   }
 
   Future<void> navigatorSplash() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 10));
     Get.off(() => OnboardingPage1());
   }
 }

@@ -17,6 +17,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     final model = Provider.of<MainMnuprovider>(context, listen: false);
     return Consumer<HomeProvider>(
       builder: (BuildContext context, provider, Widget? child) {

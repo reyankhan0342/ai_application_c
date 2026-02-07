@@ -32,6 +32,7 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
+                    SizedBox(height: 30.h),
                     Container(
                       width: 800.w,
                       height: 320.h,
@@ -48,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                             'Welcome to',
                             style: GoogleFonts.roboto(
                               textStyle: TextStyle(
-                                fontSize: 25.sp,
+                                fontSize: 25.w,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white,
                               ),
@@ -57,7 +58,11 @@ class LoginScreen extends StatelessWidget {
 
                           SizedBox(height: 30.h),
 
-                          Image.asset(AppIcons().img, width: 190, height: 160),
+                          Image.asset(
+                            AppIcons().img,
+                            width: 190.w,
+                            height: 120.h,
+                          ),
 
                           Text(
                             'ZAP',
