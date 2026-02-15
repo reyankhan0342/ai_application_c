@@ -1,4 +1,6 @@
 import 'package:ai_chat_app/core/constant/app_icons.dart';
+import 'package:ai_chat_app/cutom_widget/custom_button1.dart';
+import 'package:ai_chat_app/cutom_widget/custom_button2.dart';
 import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,39 +18,44 @@ class SerachByImageScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
+
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             model.changeScreen(-0);
           },
 
-          child: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+            size: 20,
+          ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Image.asset(AppIcons().cra, width: 32, height: 33),
+            child: Image.asset(AppIcons().cra, width: 25.w),
           ),
         ],
         title: Text(
           'Search By Image',
           style: GoogleFonts.roboto(
-            fontSize: 18.sp,
-            color: Colors.black,
+            fontSize: 16.sp,
+            color: Colors.white,
             fontWeight: FontWeight.w500,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
+        padding: EdgeInsets.symmetric(horizontal: 35.w),
         child: Column(
           children: [
-            SizedBox(height: 40.h),
+            SizedBox(height: 30.h),
             Container(
               alignment: Alignment.center,
               width: 300.w,
-              height: 500.h,
+              height: 480.h,
               decoration: BoxDecoration(
                 color: Color(0xffC7C8CF),
                 borderRadius: BorderRadius.circular(12),
@@ -58,48 +65,52 @@ class SerachByImageScreen extends StatelessWidget {
               child: Image.asset(AppIcons().i22, width: 160.w, height: 100.h),
             ),
 
-            SizedBox(height: 25.h),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Spacer(),
+            SizedBox(height: 40.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      width: 40.w,
 
-                Container(
-                  alignment: Alignment.center,
-                  width: 120.w,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.9),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.white, width: 1),
-                  ),
-                  child: Text(
-                    'Search ',
-                    style: GoogleFonts.roboto(
-                      textStyle: TextStyle(
-                        fontSize: 16.sp,
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        Icons.keyboard_alt,
+                        size: 20,
                         color: Colors.white,
-                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
-                ),
-
-                const Spacer(),
-
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    width: 60,
-                    height: 60,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.asset(AppIcons().g),
+                  CustomButton2(
+                    width: 120.w,
+                    height: 40,
+                    decoration: BoxDecoration(color: Colors.blue),
+                    title: 'Search ',
                   ),
-                ),
-              ],
+
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      width: 40.w,
+
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Image.asset(AppIcons().g, width: 20),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

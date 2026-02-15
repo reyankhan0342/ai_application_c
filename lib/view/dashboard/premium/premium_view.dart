@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PremiumPage extends StatelessWidget {
-  const PremiumPage({super.key});
+class PremiumView extends StatelessWidget {
+  const PremiumView({super.key});
 
   @override
   Widget build(BuildContext context) {

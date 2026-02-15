@@ -10,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +32,10 @@ class LoginScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(height: 30.h),
+                    SizedBox(height: 20.h),
                     Container(
                       width: 800.w,
-                      height: 320.h,
+                      height: 370.h,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         image: DecorationImage(
@@ -60,8 +60,8 @@ class LoginScreen extends StatelessWidget {
 
                           Image.asset(
                             AppIcons().img,
-                            width: 190.w,
-                            height: 120.h,
+                            width: 160.w,
+                            height: 180.h,
                           ),
 
                           Text(
@@ -79,8 +79,6 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 20.h),
-
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 43),
                       child: Column(
@@ -91,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                             controller: provider.emailController,
                           ),
 
-                          const SizedBox(height: 25),
+                          SizedBox(height: 20.h),
 
                           AuthCustomTextfield(
                             hintText: 'Password',
@@ -162,7 +160,7 @@ class LoginScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => SignUpScreen(),
+                                      builder: (context) => SignUpView(),
                                     ),
                                   );
                                 },

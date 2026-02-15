@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart' show SizeExtension;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomButton2 extends StatefulWidget {
   final String? title;
@@ -34,7 +35,7 @@ class _CustomButton2State extends State<CustomButton2> {
         BorderRadius.circular(8);
 
     return Material(
-      color: Colors.white,
+      color: Colors.blue,
       borderRadius: BorderRadius.circular(7),
       elevation: _isPressed ? 2 : 6,
       child: InkWell(
@@ -43,7 +44,7 @@ class _CustomButton2State extends State<CustomButton2> {
         onTapDown: (_) => setState(() => _isPressed = true),
         onTapUp: (_) => setState(() => _isPressed = false),
         onTapCancel: () => setState(() => _isPressed = false),
-        splashColor: Colors.grey.withOpacity(0.3),
+        splashColor: Colors.black.withOpacity(0.3),
         highlightColor: Colors.transparent,
         child: Container(
           width: widget.width,
@@ -58,10 +59,12 @@ class _CustomButton2State extends State<CustomButton2> {
 
               Text(
                 widget.title ?? '',
-                style: TextStyle(
-                  fontSize: 15.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
+                style: GoogleFonts.roboto(
+                  textStyle: TextStyle(
+                    fontSize: 15.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ],

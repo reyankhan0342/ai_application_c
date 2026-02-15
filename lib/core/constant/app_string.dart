@@ -1,15 +1,31 @@
+import 'package:ai_chat_app/core/constant/app_icons.dart';
+
 class AppString {
   final String chatDescrition =
-      ''' Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2",Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2", "value3", and "value4", respectively. The text displayed for each option is "Option 1", "Option 2", "Option 3", and "Option 4".
-When a user clicks on the select box, they will see the dropdown list of options, and Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2",Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2", "value3", and "value4", respectively. The text displayed for each option is "Option 1", "Option 2", "Option 3", and "Option 4".
-When a user clicks on the select box, they will see the dropdown list of options, and can choose one of the options by clicking on it. The selected option's value will be submitted with the form data when the form is submitted.''';
+      '''I am an AI-powered chatbot designed to provide intelligent and human-like responses. I can understand user queries, deliver accurate answers, automate conversations, assist with tasks, and offer personalized support in real time. I continuously learn to improve interactions for a smarter, smoother experience. However, I may not always understand complex or ambiguous queries, can make mistakes, and rely on the quality of input provided. I do not have real-time awareness or human emotions, so clarification may sometimes be needed to ensure accuracy.''';
 
   final String message =
-      '''AKNKAJGAJKGBAKJabfjhbafaj the select box, they will see the dropdown list of options, and Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2",Here, the <select> tag is used to define the selection menu. Within the <select> tag, you can define the options for the dropdown list using the <option> tag. Each <option> tag represents a single option in the list and includes the value attribute (which is the value associated with the option) and the text or label that is displayed to the user.
-For example, in the code above, the select box has four options with values "value1", "value2", "valu ''';
+      '''I am an AI-powered chatbot designed to provide intelligent and human-like responses. I can understand user queries, deliver accurate answers, automate conversations, assist with tasks, and offer personalized support in real time. I continuously learn to improve interactions for a smarter, smoother experience. However, I may not always understand complex or ambiguous queries, can make mistakes, and rely on the quality of input provided. I do not have real-time awareness or human emotions, so clarification may sometimes be needed to ensure accuracy.
+         However, I may not always understand complex or ambiguous queries, can make mistakes, and rely on the quality of input provided. I do not have real-time awareness or human emotions, so clarification may sometimes be needed to ensure accuracy.''';
+
+  final List<Map<String, String>> onboardingData = [
+    {
+      'image': AppIcons().chatbot,
+      'title': 'Hi! I’m Zap',
+      'subtitle':
+          'An AI-powered chatbot designed to provide instant, intelligent, and human-like responses. It automates conversations, answers user queries, offers personalized assistance,',
+    },
+    {
+      'image': AppIcons().chatbot,
+      'title': 'About my capabilities:',
+      'subtitle':
+          '''I can understand user queries, provide accurate responses, automate conversations, assist with tasks, and deliver personalized support in real time. I am designed to learn continuously and improve interactions for a smarter, smoother user experience.''',
+    },
+    {
+      'image': AppIcons().chatbot2,
+      'title': 'My Limitations:',
+      'subtitle':
+          '''“I may not always understand complex or ambiguous queries, can make mistakes, and rely on available data and training to generate responses. I do not have real-time awareness or emotions like a human. My responses depend on the quality of input provided, and I may require clarification for better accuracy''',
+    },
+  ];
 }

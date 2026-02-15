@@ -2,7 +2,7 @@ import 'package:ai_chat_app/view/dashboard/history/history_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/check_grameer/check_grammer_page.dart';
 import 'package:ai_chat_app/view/dashboard/home/code/code_page.dart';
 import 'package:ai_chat_app/view/dashboard/home/chat/chat_view.dart';
-import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/recording/voice_speach_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/img_search_view/serach_image_view.dart';
 import 'package:flutter/material.dart';
 

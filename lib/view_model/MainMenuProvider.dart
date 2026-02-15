@@ -1,7 +1,7 @@
 import 'package:ai_chat_app/view/dashboard/history/history_view.dart';
-import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
-import 'package:ai_chat_app/view/dashboard/premium/premium_page.dart';
-import 'package:ai_chat_app/view/dashboard/profile/profile_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/home_page/home_view.dart';
+import 'package:ai_chat_app/view/dashboard/premium/premium_view.dart';
+import 'package:ai_chat_app/view/dashboard/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class MainMnuprovider extends ChangeNotifier {
@@ -27,7 +27,7 @@ class MainMnuprovider extends ChangeNotifier {
   }
 
   void Screens() {
-    screenList = [HomeScreen(), HistoryPage(), PremiumPage(), ProfileScreen()];
+    screenList = [HomeView(), HistoryView(), PremiumView(), ProfileView()];
   }
 
   Future<void> changeScreen(int index) async {

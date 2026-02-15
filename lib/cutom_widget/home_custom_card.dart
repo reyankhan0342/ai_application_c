@@ -34,13 +34,13 @@ class HomeCustomCard extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              width: 30,
-              height: 30,
+              width: 25.w,
+              height: 25.w,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0XFF2B89DD),
               ),
-              child: Image.asset(icon),
+              child: Image.asset(icon, width: 15.w),
             ),
 
             SizedBox(height: 8.h),
@@ -48,22 +48,22 @@ class HomeCustomCard extends StatelessWidget {
               '${title.toString()}',
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 12.sp,
                   letterSpacing: 1.0,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                   color: Colors.black,
                 ),
               ),
             ),
 
-            SizedBox(height: 5.h),
+            SizedBox(height: 3.h),
             Text(
               '${description.toString()}',
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
-                  fontSize: 12.sp,
+                  fontSize: 10.sp,
                   letterSpacing: 0.5,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w500,
                   color: Colors.black,
                 ),
               ),

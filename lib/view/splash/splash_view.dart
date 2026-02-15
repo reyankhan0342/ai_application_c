@@ -5,11 +5,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView> {
+  @override
   Widget build(BuildContext context) {
+    final splashProvider = SplashProvider();
+    splashProvider.navigatorSplash(context);
     return Consumer<SplashProvider>(
       builder: (BuildContext context, provider, Widget? child) {
         return Scaffold(

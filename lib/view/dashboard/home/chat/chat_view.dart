@@ -26,24 +26,29 @@ class _ChatViewState extends State<ChatView> {
       backgroundColor: Colors.black,
 
       appBar: AppBar(
-        backgroundColor: Colors.black26,
+        backgroundColor: Colors.blue,
+
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             model.changeScreen(-0);
           },
-          child: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.white,
+          ),
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Image.asset(AppIcons().cra, width: 32, height: 33),
+            child: Image.asset(AppIcons().cra, width: 25.w),
           ),
         ],
         title: Text(
           'Chat with ZAP!',
           style: GoogleFonts.roboto(
-            fontSize: 18.sp,
+            fontSize: 16.sp,
             color: Colors.white,
             fontWeight: FontWeight.w500,
           ),
@@ -52,13 +57,13 @@ class _ChatViewState extends State<ChatView> {
 
       // 🔹 CHAT BODY
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: SingleChildScrollView(
           controller: scrollController,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 30.h),
+              SizedBox(height: 15.h),
 
               Container(
                 padding: const EdgeInsets.all(9),
@@ -71,16 +76,17 @@ class _ChatViewState extends State<ChatView> {
                   'welcome to zap! do you have new question',
                   style: GoogleFonts.roboto(
                     fontSize: 13.sp,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
+                  textAlign: TextAlign.justify,
                 ),
               ),
 
-              const SizedBox(height: 30),
+              SizedBox(height: 15.h),
 
               Container(
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(10.w),
                 width: screenWidth,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -91,7 +97,7 @@ class _ChatViewState extends State<ChatView> {
                       alignment: Alignment.topRight,
                       child: Container(
                         alignment: Alignment.center,
-                        width: 120,
+                        width: 110.w,
                         height: 40,
                         decoration: BoxDecoration(
                           color: Colors.lightBlue.withOpacity(0.7),
@@ -106,34 +112,33 @@ class _ChatViewState extends State<ChatView> {
                                   const SnackBar(content: Text("Copied")),
                                 );
                               },
-                              child: const Icon(Icons.copy, size: 18),
+                              child: Icon(Icons.copy, size: 15.w),
                             ),
                             InkWell(
                               onTap: () {},
-                              child: const Icon(Icons.share, size: 18),
+                              child: Icon(Icons.share, size: 15.w),
                             ),
                             InkWell(
                               onTap: () {},
-                              child: const Icon(Icons.volume_up, size: 18),
+                              child: Icon(Icons.volume_up, size: 15.w),
                             ),
                           ],
                         ),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 10.h),
                     Text(
-                      AppString().chatDescrition,
+                      AppString().message + AppString().message,
                       style: GoogleFonts.roboto(
                         fontSize: 13.sp,
                         fontWeight: FontWeight.w500,
                         color: Colors.white,
                       ),
+                      textAlign: TextAlign.justify,
                     ),
                   ],
                 ),
               ),
-
-              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -156,68 +161,60 @@ class _ChatViewState extends State<ChatView> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-          width: 293,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: Colors.blue.withOpacity(0.5), width: 1),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Expanded(
+        Flexible(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            // Remove fixed height to allow vertical growth
+            // height: 45.h,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.blue.withOpacity(0.5), width: 1),
+            ),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: 45.h, // minimum height
+                maxHeight: 200.h, // maximum height to prevent overflow
+              ),
+              child: Scrollbar(
                 child: TextField(
                   controller: messageController,
                   keyboardType: TextInputType.multiline,
-                  maxLines: null,
-                  minLines: 1,
+                  maxLines: null, // allow unlimited lines
+                  style: TextStyle(
+                    fontSize: 14.sp, // set font size
+                    fontWeight: FontWeight.w400,
+                  ),
                   textInputAction: TextInputAction.newline,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     hintText: "Type a message...",
+                    hintStyle: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
                     border: InputBorder.none,
                     isDense: true,
-                    contentPadding: EdgeInsets.symmetric(vertical: 6),
+                    contentPadding: EdgeInsets.symmetric(vertical: 8),
                   ),
                 ),
               ),
-
-              Container(
-                width: 40,
-                height: 40,
-                padding: EdgeInsets.only(left: 5),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  shape: BoxShape.circle,
-                ),
-                child: IconButton(
-                  icon: const Icon(Icons.send, size: 25),
-                  color: Colors.white,
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  onPressed: () {},
-                ),
-              ),
-            ],
+            ),
           ),
         ),
-
-        const SizedBox(width: 20),
-
-        Container(
-          width: 40,
-          height: 40,
-
-          alignment: Alignment.center,
-          decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-          child: IconButton(
-            icon: const Icon(Icons.mic, size: 26),
-            color: Colors.white,
-            onPressed: () {
-              print("Audio record tapped");
+        SizedBox(width: 8.w),
+        // Send button example
+        Material(
+          color: Colors.blue,
+          shape: const CircleBorder(),
+          child: InkWell(
+            onTap: () {
+              print("Send tapped: ${messageController.text}");
             },
+            child: SizedBox(
+              width: 40,
+              height: 40,
+              child: Icon(Icons.send, color: Colors.white, size: 20),
+            ),
           ),
         ),
       ],

@@ -19,7 +19,7 @@ class OnboardingPage1 extends StatelessWidget {
           backgroundColor: Colors.white,
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w),
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
               child: Column(
                 children: [
                   SizedBox(height: 30.h),
@@ -45,21 +45,22 @@ class OnboardingPage1 extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 15),
 
                   Expanded(
                     child: PageView.builder(
                       controller: provider.pageController,
-                      itemCount: provider.onboardingData.length,
+                      itemCount: provider.string.onboardingData.length,
                       onPageChanged: (index) {
                         provider.ChangeOnboardingPage(index);
                       },
                       itemBuilder: (context, index) {
-                        final data = provider.onboardingData[index];
+                        final data = provider.string.onboardingData[index];
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(height: 30.h),
-                            Image.asset(data['image']!, width: 250.w),
+                            SizedBox(height: 50.h),
+                            Image.asset(data['image']!, width: 180.w),
                             SizedBox(height: 30.h),
                             Text(
                               data['title']!,
@@ -73,16 +74,34 @@ class OnboardingPage1 extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
 
-                            Text(
-                              data['subtitle']!,
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromARGB(134, 31, 31, 32),
+                            Expanded(
+                              child: MediaQuery(
+                                data: MediaQuery.of(
+                                  context,
+                                ).copyWith(textScaleFactor: 1.0),
+                                child: SingleChildScrollView(
+                                  physics: const BouncingScrollPhysics(),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal: 8.w,
+                                    ),
+                                    child: Text(
+                                      textAlign: TextAlign.justify,
+                                      data['subtitle']!,
+                                      style: GoogleFonts.roboto(
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.w400,
+                                        color: const Color.fromARGB(
+                                          134,
+                                          31,
+                                          31,
+                                          32,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ),
-                              textAlign: TextAlign.center,
                             ),
                           ],
                         );
@@ -94,7 +113,7 @@ class OnboardingPage1 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
-                      provider.onboardingData.length,
+                      provider.string.onboardingData.length,
                       (index) => AnimatedContainer(
                         duration: const Duration(milliseconds: 100),
                         curve: Curves.easeInOut,
@@ -116,13 +135,13 @@ class OnboardingPage1 extends StatelessWidget {
                   CustomButton1(
                     title:
                         provider.currentPage ==
-                            provider.onboardingData.length - 1
+                            provider.string.onboardingData.length - 1
                         ? 'Get Started'
                         : 'Next',
                     onTap: provider.nextPage,
                   ),
 
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 50.h),
                 ],
               ),
             ),

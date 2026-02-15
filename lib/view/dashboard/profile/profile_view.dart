@@ -8,10 +8,12 @@ import 'package:ai_chat_app/view/dashboard/profile/sub_pages/help_center.dart';
 import 'package:ai_chat_app/view/dashboard/profile/sub_pages/language_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_x/get_navigation/get_navigation.dart';
+import 'package:get_x/utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class ProfileView extends StatelessWidget {
+  const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,29 +21,29 @@ class ProfileScreen extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.blue,
         centerTitle: true,
 
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: Image.asset(AppIcons().cra, width: 32, height: 33),
+            child: Image.asset(AppIcons().cra, width: 25.w),
           ),
         ],
         title: Text(
-          ' ',
+          'Account ',
           style: GoogleFonts.roboto(
-            fontSize: 18.sp,
-            color: Colors.black,
+            fontSize: 16.sp,
+            color: Colors.white,
             fontWeight: FontWeight.w500,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 25, right: 28),
+        padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
               SizedBox(height: 10),
               Container(
                 width: screenWidth,
-                height: 160.h,
+                height: 170.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
 
@@ -61,9 +63,9 @@ class ProfileScreen extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
-                      blurRadius: 8,
+                      blurRadius: 1,
                       spreadRadius: 1,
-                      offset: Offset(0, 3), // shadow direction (x, y)
+                      offset: Offset(0, 1), // shadow direction (x, y)
                     ),
                   ],
                 ),
@@ -83,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                           'Your Credits',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
-                              fontSize: 16.sp,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                               fontStyle: FontStyle.normal,
                               color: Colors.white,
@@ -94,8 +96,8 @@ class ProfileScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SizedBox(width: 20),
-                          Image.asset(AppIcons().coin, width: 30),
+                          SizedBox(width: 10),
+                          Image.asset(AppIcons().coin, width: 25.w),
                         ],
                       ),
 
@@ -103,7 +105,7 @@ class ProfileScreen extends StatelessWidget {
                         '+1220',
                         style: GoogleFonts.roboto(
                           textStyle: TextStyle(
-                            fontSize: 23.sp,
+                            fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
                             color: Colors.white.withOpacity(0.7),
                           ),
@@ -114,39 +116,37 @@ class ProfileScreen extends StatelessWidget {
                         'Watch Ad to Earn Credit',
                         style: GoogleFonts.roboto(
                           textStyle: TextStyle(
-                            fontSize: 13.sp,
+                            fontSize: 12.sp,
                             color: Colors.white.withOpacity(0.5),
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Flexible(
-                        child: GestureDetector(
-                          onTap: () async {
-                            log(' start recording tap ===>>>>> ');
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 180.w,
-                            height: 45,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: Colors.blueAccent,
-                                width: 1,
-                              ),
+                      SizedBox(height: 15.h),
+                      GestureDetector(
+                        onTap: () async {
+                          log(' start recording tap ===>>>>> ');
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 140.w,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: Colors.blueAccent,
+                              width: 1,
                             ),
-                            child: Text(
-                              'Watch Ad ',
-                              style: GoogleFonts.roboto(
-                                textStyle: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: Colors.blueAccent,
+                          ),
+                          child: Text(
+                            'Watch Ad ',
+                            style: GoogleFonts.roboto(
+                              textStyle: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.blueAccent,
 
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
@@ -157,21 +157,21 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 18),
+              SizedBox(height: 14.h),
               Text(
                 'Settings',
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black,
                   ),
                 ),
               ),
 
-              SizedBox(height: 14),
+              SizedBox(height: 12.h),
               Container(
-                height: 140,
+                height: 120.h,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -182,8 +182,10 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff242527).withOpacity(0.05),
+                  color: Color(0xff2425270D).withOpacity(0.05),
                 ),
+
+                //    padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,12 +194,7 @@ class ProfileScreen extends StatelessWidget {
                       onTap: () {},
                       child: ProfileCustomCard(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LanguageView(),
-                            ),
-                          );
+                          Get.toNamed("/LanguageView");
                         },
                         leadingIcon: AppIcons().language,
                         title: 'Language',
@@ -219,12 +216,12 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 15),
+              SizedBox(height: 12.h),
               Text(
                 'Support',
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
@@ -232,7 +229,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Container(
-                height: 90,
+                height: 80.h,
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -243,6 +240,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
+                  //color: Colors.green,
                   color: const Color(0xff242527).withOpacity(0.05),
                 ),
                 child: Column(
@@ -257,13 +255,7 @@ class ProfileScreen extends StatelessWidget {
                       leadingIcon: AppIcons().help,
                       title: 'Help',
                     ),
-                    Container(
-                      height: 0.2,
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.3),
-                      ),
-                    ),
+                    const CustomDivider(),
                     ProfileCustomCard(
                       leadingIcon: AppIcons().restor,
                       title: 'Restore Purchases',
@@ -272,19 +264,19 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 12),
+              SizedBox(height: 12.h),
 
               Text(
                 'About Us',
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Container(
                 decoration: BoxDecoration(
                   boxShadow: [
@@ -296,6 +288,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ],
                   borderRadius: BorderRadius.circular(10),
+                  // color: Colors.amber,
                   color: const Color(0xff242527).withOpacity(0.05),
                 ),
                 child: Column(
@@ -317,7 +310,6 @@ class ProfileScreen extends StatelessWidget {
                       leadingIcon: '${AppIcons().language}',
                       title: 'Terms of use',
                     ),
-                    SizedBox(height: 8),
                   ],
                 ),
               ),

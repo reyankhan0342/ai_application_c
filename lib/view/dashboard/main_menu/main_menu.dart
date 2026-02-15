@@ -1,12 +1,12 @@
 import 'package:ai_chat_app/core/constant/app_icons.dart';
 import 'package:ai_chat_app/view_model/MainMenuProvider.dart';
 import 'package:ai_chat_app/view/dashboard/history/history_view.dart';
-import 'package:ai_chat_app/view/dashboard/home/home_page/home_screen.dart';
+import 'package:ai_chat_app/view/dashboard/home/home_page/home_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/chat/chat_view.dart';
-import 'package:ai_chat_app/view/dashboard/home/recording/recording_page.dart';
+import 'package:ai_chat_app/view/dashboard/home/recording/voice_speach_view.dart';
 import 'package:ai_chat_app/view/dashboard/home/img_search_view/serach_image_view.dart';
-import 'package:ai_chat_app/view/dashboard/premium/premium_page.dart';
-import 'package:ai_chat_app/view/dashboard/profile/profile_page.dart';
+import 'package:ai_chat_app/view/dashboard/premium/premium_view.dart';
+import 'package:ai_chat_app/view/dashboard/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -26,19 +26,10 @@ class MainMenu extends StatelessWidget {
         return Scaffold(
           backgroundColor: Colors.blue,
           bottomNavigationBar: Container(
-            margin: EdgeInsets.only(bottom: 20, left: 10, right: 10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(17),
-                topRight: Radius.circular(17),
-                bottomLeft: Radius.circular(17),
-                bottomRight: Radius.circular(17),
-              ),
-
-              color: Colors.blue,
-            ),
+            margin: EdgeInsets.only(left: 5, right: 5),
+            decoration: BoxDecoration(color: Colors.blue),
             width: screenWidth,
-            height: 80,
+            height: 65,
 
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,7 +40,7 @@ class MainMenu extends StatelessWidget {
                       await provider.changeScreen(0);
                     },
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
 
                       // width: 70,
                       // height: 50,
@@ -59,7 +50,13 @@ class MainMenu extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().i9,
-                            width: 30,
+                            width:
+                                provider.selectedIndex == 0 ||
+                                    provider.selectedIndex == 4 ||
+                                    provider.selectedIndex == 5 ||
+                                    provider.selectedIndex == 6
+                                ? 24.w
+                                : 22,
                             color:
                                 provider.selectedIndex == 0 ||
                                     provider.selectedIndex == 4 ||
@@ -72,7 +69,13 @@ class MainMenu extends StatelessWidget {
                           Text(
                             'Home',
                             style: TextStyle(
-                              fontSize: 9.sp,
+                              fontSize:
+                                  provider.selectedIndex == 0 ||
+                                      provider.selectedIndex == 4 ||
+                                      provider.selectedIndex == 5 ||
+                                      provider.selectedIndex == 6
+                                  ? 11.sp
+                                  : 10,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -98,7 +101,7 @@ class MainMenu extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().i10,
-                            width: 30,
+                            width: provider.selectedIndex == 1 ? 24 : 22,
                             color: provider.selectedIndex == 1
                                 ? Colors.white
                                 : Color(0xff8DBFF1),
@@ -107,7 +110,7 @@ class MainMenu extends StatelessWidget {
                           Text(
                             'History',
                             style: TextStyle(
-                              fontSize: 9.sp,
+                              fontSize: provider.selectedIndex == 1 ? 11 : 10,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -133,7 +136,7 @@ class MainMenu extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().i11,
-                            width: 30,
+                            width: provider.selectedIndex == 2 ? 24 : 22,
                             color: provider.selectedIndex == 2
                                 ? Colors.white
                                 : Color(0xff8DBFF1),
@@ -142,7 +145,7 @@ class MainMenu extends StatelessWidget {
                           Text(
                             'Premium',
                             style: TextStyle(
-                              fontSize: 9.sp,
+                              fontSize: provider.selectedIndex == 2 ? 11 : 10,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -168,7 +171,7 @@ class MainMenu extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().i12,
-                            width: 30,
+                            width: provider.selectedIndex == 3 ? 24 : 22,
                             color: provider.selectedIndex == 3
                                 ? Colors.white
                                 : Color(0xff8DBFF1),
@@ -178,7 +181,7 @@ class MainMenu extends StatelessWidget {
                           Text(
                             'Profile',
                             style: TextStyle(
-                              fontSize: 9.sp,
+                              fontSize: provider.selectedIndex == 3 ? 11 : 10,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -195,13 +198,13 @@ class MainMenu extends StatelessWidget {
           body: provider.isLoading == true
               ? Center(
                   child: SpinKitCircle(
-                    color: Colors.black,
+                    color: Colors.white,
                     size: 60.0,
-                    duration: Duration(milliseconds: 1200),
+                    duration: Duration(milliseconds: 300),
                   ),
                 )
               : provider.selectedIndex == 4
-              ? VoiceSpeach()
+              ? VoiceSpeachView()
               : provider.selectedIndex == 5
               ? ChatView()
               : provider.selectedIndex == 6

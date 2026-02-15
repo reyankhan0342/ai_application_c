@@ -9,30 +9,41 @@ class HistoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      alignment: Alignment.centerLeft,
-      width: screenWidth * 0.5,
-      height: 50,
+      width: screenWidth * 0.4,
+      height: 47.h,
       decoration: BoxDecoration(
-        color: Color(0xffC7C8CF).withOpacity(0.7),
+        color: const Color(0xff2425270D).withOpacity(0.05),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: ListTile(
-        leading: Container(
-          alignment: Alignment.center,
-          width: 30,
-          decoration: BoxDecoration(color: Colors.blue, shape: BoxShape.circle),
-          child: Image.asset(AppIcons().mes, width: 22),
-        ),
-        title: Text(
-          'Define C++ function.',
-          style: GoogleFonts.roboto(
-            textStyle: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+      child: Center(
+        // 👈 Ensures vertical centering
+        child: ListTile(
+          dense: true, // 👈 reduces height
+          contentPadding: EdgeInsets.only(left: 8.w, right: 8.w), //
+          leading: Container(
+            alignment: Alignment.center,
+            width: 27,
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              shape: BoxShape.circle,
+            ),
+            child: Image.asset(AppIcons().mes, width: 15),
           ),
+          title: Text(
+            'Define C++ function.',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: GoogleFonts.roboto(
+              textStyle: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+          trailing: const Icon(Icons.star, color: Colors.blue, size: 15),
         ),
-        trailing: Icon(Icons.star, color: Colors.blue),
       ),
     );
   }

@@ -6,11 +6,12 @@ import 'package:ai_chat_app/cutom_widget/custom_button2.dart';
 import 'package:ai_chat_app/cutom_widget/custom_textField.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +37,16 @@ class SignUpScreen extends StatelessWidget {
                       'Complete Your Profile',
                       style: GoogleFonts.roboto(
                         textStyle: TextStyle(
-                          fontSize: 18.sp,
+                          fontSize: 20.sp,
                           fontWeight: FontWeight.w500,
+                          wordSpacing: 1.1,
                           color: Colors.white,
                         ),
                       ),
                     ),
                     Container(
                       width: screenWidth,
-                      height: 300.h,
+                      height: 250.h,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(AppIcons().baccolor),
@@ -58,15 +60,15 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           Image.asset(
                             AppIcons().img,
-                            width: 140.0.w,
-                            height: 100.h,
+                            width: 133.0.w,
+                            height: 125.h,
                           ),
                           SizedBox(height: 5),
 
                           Text(
                             'ZAP',
                             style: TextStyle(
-                              fontSize: 24.sp,
+                              fontSize: 30.sp,
                               color: Colors.white,
                               letterSpacing: 5,
                               fontFamily: 'Bauhaus',
@@ -77,10 +79,10 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: 18.h),
+                    SizedBox(height: 5.h),
 
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 43),
+                      padding: const EdgeInsets.symmetric(horizontal: 35),
                       child: Column(
                         children: [
                           AuthCustomTextfield(
@@ -89,14 +91,14 @@ class SignUpScreen extends StatelessWidget {
                             controller: provider.nameController,
                           ),
 
-                          const SizedBox(height: 25),
+                          SizedBox(height: 20.h),
                           AuthCustomTextfield(
                             hintText: 'Enter Your Email',
                             prefcon: Icons.person,
                             controller: provider.emailcontroller,
                           ),
 
-                          const SizedBox(height: 25),
+                          SizedBox(height: 20.h),
 
                           AuthCustomTextfield(
                             hintText: 'Password',
@@ -112,7 +114,7 @@ class SignUpScreen extends StatelessWidget {
                               ),
                             },
                           ),
-                          const SizedBox(height: 25),
+                          SizedBox(height: 20.h),
 
                           AuthCustomTextfield(
                             hintText: 'Confirm Password',
@@ -128,15 +130,15 @@ class SignUpScreen extends StatelessWidget {
                               ),
                             },
                           ),
+                          SizedBox(height: 70.w),
 
-                          SizedBox(height: 75.h),
                           Padding(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 5.0,
                             ),
                             child: CustomButton2(
                               width: screenWidth,
-                              height: 45,
+                              height: 50.h,
                               title: "Sigin Up",
 
                               onTap: () {
@@ -165,7 +167,7 @@ class SignUpScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => LoginScreen(),
+                                      builder: (context) => LoginView(),
                                     ),
                                   );
                                 },
