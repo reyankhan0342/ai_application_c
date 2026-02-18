@@ -9,8 +9,12 @@
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
   errors:
+    avoid_single_cascade_in_expression_statements: ignore
     avoid_unnecessary_containers: ignore
     deprecated_member_use: ignore
+    no_leading_underscores_for_local_identifiers: ignore
+    unused_catch_stack: ignore
+    unused_import: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:

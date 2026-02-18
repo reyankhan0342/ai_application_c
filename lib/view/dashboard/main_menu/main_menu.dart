@@ -34,114 +34,137 @@ class MainMenu extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Flexible(
-                  child: GestureDetector(
+                Material(
+                  color: Colors.transparent, // important
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    splashColor: Colors.white.withOpacity(0.2),
+                    highlightColor: Colors.white.withOpacity(0.1),
                     onTap: () async {
                       await provider.changeScreen(0);
                     },
-                    child: Padding(
-                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 5),
-
-                      // width: 70,
-                      // height: 50,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppIcons().i9,
-                            width:
-                                provider.selectedIndex == 0 ||
-                                    provider.selectedIndex == 4 ||
-                                    provider.selectedIndex == 5 ||
-                                    provider.selectedIndex == 6
-                                ? 24.w
-                                : 22,
-                            color:
-                                provider.selectedIndex == 0 ||
-                                    provider.selectedIndex == 4 ||
-                                    provider.selectedIndex == 5 ||
-                                    provider.selectedIndex == 6
-                                ? Colors.white
-                                : Color(0xff8DBFF1),
-                          ),
-
-                          Text(
-                            'Home',
-                            style: TextStyle(
-                              fontSize:
+                    child: Container(
+                      width: 70.w,
+                      decoration: BoxDecoration(shape: BoxShape.circle),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: 10,
+                          right: 10,
+                          bottom: 5,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              AppIcons().i9,
+                              width:
                                   provider.selectedIndex == 0 ||
                                       provider.selectedIndex == 4 ||
                                       provider.selectedIndex == 5 ||
                                       provider.selectedIndex == 6
-                                  ? 11.sp
-                                  : 10,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                                  ? 24.w
+                                  : 22,
+                              color:
+                                  provider.selectedIndex == 0 ||
+                                      provider.selectedIndex == 4 ||
+                                      provider.selectedIndex == 5 ||
+                                      provider.selectedIndex == 6
+                                  ? Colors.white
+                                  : Color(0xff8DBFF1),
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Home',
+                              style: TextStyle(
+                                fontSize:
+                                    provider.selectedIndex == 0 ||
+                                        provider.selectedIndex == 4 ||
+                                        provider.selectedIndex == 5 ||
+                                        provider.selectedIndex == 6
+                                    ? 11.sp
+                                    : 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Flexible(
-                  child: GestureDetector(
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    splashColor: Colors.white.withOpacity(0.2),
+                    highlightColor: Colors.white.withOpacity(0.1),
                     onTap: () async {
-                      await provider.changeScreen(1);
+                      provider.changeScreen(1);
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-
-                      // width: 70,
-                      // height: 50,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AppIcons().i10,
-                            width: provider.selectedIndex == 1 ? 24 : 22,
-                            color: provider.selectedIndex == 1
-                                ? Colors.white
-                                : Color(0xff8DBFF1),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            'History',
-                            style: TextStyle(
-                              fontSize: provider.selectedIndex == 1 ? 11 : 10,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                    child: Container(
+                      width: 70.w,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              AppIcons().i10,
+                              width: provider.selectedIndex == 1 ? 24 : 22,
+                              color: provider.selectedIndex == 1
+                                  ? Colors.white
+                                  : Color(0xff8DBFF1),
                             ),
-                          ),
-                        ],
+                            SizedBox(height: 5),
+                            Text(
+                              'History',
+                              style: TextStyle(
+                                fontSize: provider.selectedIndex == 1 ? 11 : 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Flexible(
-                  child: GestureDetector(
+                Material(
+                  color: Colors.transparent,
+
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    splashColor: Colors.white.withOpacity(0.2),
+                    highlightColor: Colors.white.withOpacity(0.1),
                     onTap: () async {
                       await provider.changeScreen(2);
                     },
-                    child: Padding(
+                    child: Container(
+                      width: 70.w,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        shape: BoxShape.circle,
+                      ),
                       padding: const EdgeInsets.all(8.0),
-
-                      // width: 70,
-                      // height: 50,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Image.asset(
                             AppIcons().i11,
-                            width: provider.selectedIndex == 2 ? 24 : 22,
+                            width: provider.selectedIndex == 2 ? 22 : 20,
                             color: provider.selectedIndex == 2
                                 ? Colors.white
                                 : Color(0xff8DBFF1),
                           ),
-
+                          SizedBox(height: 4),
                           Text(
                             'Premium',
                             style: TextStyle(
@@ -155,16 +178,23 @@ class MainMenu extends StatelessWidget {
                     ),
                   ),
                 ),
-                Flexible(
-                  child: GestureDetector(
+                Material(
+                  color: Colors.transparent,
+
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(12),
+                    splashColor: Colors.white.withOpacity(0.2),
+                    highlightColor: Colors.white.withOpacity(0.1),
                     onTap: () async {
                       await provider.changeScreen(3);
                     },
-                    child: Padding(
+                    child: Container(
+                      width: 70.w,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        shape: BoxShape.circle,
+                      ),
                       padding: const EdgeInsets.all(8.0),
-
-                      // width: 70,
-                      // height: 50,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -174,10 +204,9 @@ class MainMenu extends StatelessWidget {
                             width: provider.selectedIndex == 3 ? 24 : 22,
                             color: provider.selectedIndex == 3
                                 ? Colors.white
-                                : Color(0xff8DBFF1),
+                                : const Color(0xff8DBFF1),
                           ),
-
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Text(
                             'Profile',
                             style: TextStyle(
@@ -195,15 +224,7 @@ class MainMenu extends StatelessWidget {
             ),
           ),
 
-          body: provider.isLoading == true
-              ? Center(
-                  child: SpinKitCircle(
-                    color: Colors.white,
-                    size: 60.0,
-                    duration: Duration(milliseconds: 300),
-                  ),
-                )
-              : provider.selectedIndex == 4
+          body: provider.selectedIndex == 4
               ? VoiceSpeachView()
               : provider.selectedIndex == 5
               ? ChatView()

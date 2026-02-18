@@ -14,9 +14,14 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     final splashProvider = SplashProvider();
     splashProvider.navigatorSplash(context);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Consumer<SplashProvider>(
       builder: (BuildContext context, provider, Widget? child) {
         return Scaffold(

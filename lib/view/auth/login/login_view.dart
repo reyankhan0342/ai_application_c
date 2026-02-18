@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:ai_chat_app/core/app_route/routes.dart';
 import 'package:ai_chat_app/core/constant/app_icons.dart';
 import 'package:ai_chat_app/view_model/signInProvider.dart';
 import 'package:ai_chat_app/view/auth/signUp/sign_up_view.dart';
@@ -7,6 +10,7 @@ import 'package:ai_chat_app/view/dashboard/main_menu/main_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -28,186 +32,203 @@ class LoginView extends StatelessWidget {
             backgroundColor: const Color(0xff318CE7),
             body: SafeArea(
               child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 20.h),
-                    Container(
-                      width: 800.w,
-                      height: 370.h,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          image: AssetImage(AppIcons().baccolor),
+                child: Form(
+                  key: provider.formKeySignIn,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 20.h),
+                      Container(
+                        width: 800.w,
+                        height: 370.h,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                            image: AssetImage(AppIcons().baccolor),
+                          ),
                         ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Welcome to',
-                            style: GoogleFonts.roboto(
-                              textStyle: TextStyle(
-                                fontSize: 25.w,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-
-                          SizedBox(height: 30.h),
-
-                          Image.asset(
-                            AppIcons().img,
-                            width: 160.w,
-                            height: 180.h,
-                          ),
-
-                          Text(
-                            'ZAP',
-                            style: TextStyle(
-                              fontSize: 30.sp,
-                              letterSpacing: 8,
-                              fontFamily: 'Bauhaus',
-
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 43),
-                      child: Column(
-                        children: [
-                          AuthCustomTextfield(
-                            hintText: 'Enter Your Name',
-                            prefcon: Icons.person,
-                            controller: provider.emailController,
-                          ),
-
-                          SizedBox(height: 20.h),
-
-                          AuthCustomTextfield(
-                            hintText: 'Password',
-                            prefcon: Icons.lock,
-                            controller: provider.passwordController,
-                            obscureText: provider.isPasswordVisible,
-                            suffixIc: Icons.visibility,
-                            visibility: () => {
-                              provider.passwordVisbility(
-                                provider.isPasswordVisible =
-                                    !provider.isPasswordVisible,
-                              ),
-                            },
-                          ),
-
-                          SizedBox(height: 7),
-
-                          Align(
-                            alignment: Alignment.bottomRight,
-                            child: Text(
-                              'Forget Password',
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Welcome to',
                               style: GoogleFonts.roboto(
                                 textStyle: TextStyle(
-                                  fontSize: 11.sp,
-
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                          SizedBox(height: 17),
-                          CustomButton2(
-                            height: 45.h,
-                            width: screenWidth,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.blue,
-                                width: 0.9,
-                              ),
-                            ),
-                            title: 'Sign In ',
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (_) => MainMenu()),
-                              );
-                            },
-                          ),
-                          SizedBox(height: 15),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Don’t have an account: ',
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  color: Colors.white.withOpacity(0.7),
+                                  fontSize: 25.w,
                                   fontWeight: FontWeight.w500,
+                                  color: Colors.white,
                                 ),
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => SignUpView(),
-                                    ),
-                                  );
-                                },
-                                child: Text(
-                                  'Register',
-                                  style: GoogleFonts.roboto(
-                                    textStyle: TextStyle(
-                                      fontSize: 12.sp,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w400,
-                                      decoration: TextDecoration.underline,
-                                      decorationColor: Colors.white,
-                                    ),
+                            ),
+
+                            SizedBox(height: 30.h),
+
+                            Image.asset(
+                              AppIcons().img,
+                              width: 160.w,
+                              height: 180.h,
+                            ),
+
+                            Text(
+                              'ZAP',
+                              style: TextStyle(
+                                fontSize: 30.sp,
+                                letterSpacing: 8,
+                                fontFamily: 'Bauhaus',
+
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 43),
+                        child: Column(
+                          children: [
+                            AuthCustomTextfield(
+                              hintText: 'Enter Your Email',
+                              prefcon: Icons.person,
+                              controller: provider.emailController,
+
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Email is requred  ";
+                                }
+                              },
+                            ),
+
+                            SizedBox(height: 20.h),
+
+                            AuthCustomTextfield(
+                              hintText: 'Enter Your Password',
+                              prefcon: Icons.lock,
+                              controller: provider.passwordController,
+                              obscureText: provider.isPasswordVisible,
+                              suffixIc: provider.isPasswordVisible
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              visibility: () => {
+                                provider.passwordVisbility(
+                                  provider.isPasswordVisible =
+                                      !provider.isPasswordVisible,
+                                ),
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Password is required';
+                                }
+                                return null;
+                              },
+                            ),
+
+                            SizedBox(height: 7),
+
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
+                                'Forget Password',
+                                style: GoogleFonts.roboto(
+                                  textStyle: TextStyle(
+                                    fontSize: 11.sp,
+
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-
-                          SizedBox(height: 8),
-                          Container(
-                            width: screenWidth,
-                            height: 2,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
                             ),
-                          ),
 
-                          SizedBox(height: 48.h),
-                          CustomButton2(
-                            image: AppIcons().google!,
-                            height: 45.h,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
+                            SizedBox(height: 17),
+                            CustomButton2(
+                              height: 45.h,
+                              width: screenWidth,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.blue,
+                                  width: 0.9,
+                                ),
+                              ),
+                              title: 'Sign In ',
+                              onTap: () {
+                                // if (provider.formKeySignIn.currentState!.validate()) {
+                                //   SnackBar(content: Text('Login SucessFully '));
+                                // } else {
+                                //   SnackBar(content: Text('Error'));
+                                // }
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (_) => MainMenu()),
+                                );
+                              },
+                            ),
+                            SizedBox(height: 15),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Don’t have an account: ',
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: Colors.white.withOpacity(0.7),
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    context.go(RouteNames.signUpView);
+                                  },
+                                  child: Text(
+                                    'Register',
+                                    style: GoogleFonts.roboto(
+                                      textStyle: TextStyle(
+                                        fontSize: 12.sp,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w400,
+                                        decoration: TextDecoration.underline,
+                                        decorationColor: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
 
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: Colors.blue,
-                                width: 0.9,
+                            SizedBox(height: 8),
+                            Container(
+                              width: screenWidth,
+                              height: 2,
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.2),
                               ),
                             ),
-                            title: 'Sign up with Google ',
-                          ),
-                        ],
+
+                            SizedBox(height: 20.h),
+                            CustomButton2(
+                              image: AppIcons().google!,
+                              height: 45.h,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(
+                                  color: Colors.blue,
+                                  width: 0.9,
+                                ),
+                              ),
+                              title: 'Sign up with Google ',
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

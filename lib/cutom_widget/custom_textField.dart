@@ -5,16 +5,22 @@ import 'package:google_fonts/google_fonts.dart';
 class AuthCustomTextfield extends StatelessWidget {
   final String hintText;
   final String? labelText;
+  final String? Function(String?)? validator;
   final IconData? prefcon;
   final IconData? suffixIc;
   final TextEditingController? controller;
   final TextInputType keyboardType;
-  bool obscureText;
-  VoidCallback? visibility;
+  final bool obscureText;
+  final VoidCallback? visibility;
 
-  AuthCustomTextfield({
+  final ValueChanged<String>? onChanged; // called when text changes
+  final FocusNode? focusNode; // current field focus
+  final FocusNode? nextFocus; // next field to focus
+
+  const AuthCustomTextfield({
     super.key,
     required this.hintText,
+    this.validator,
     this.labelText,
     this.prefcon,
     this.suffixIc,
@@ -22,15 +28,16 @@ class AuthCustomTextfield extends StatelessWidget {
     this.controller,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
+    this.onChanged,
+    this.focusNode,
+    this.nextFocus,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.08),
@@ -40,24 +47,30 @@ class AuthCustomTextfield extends StatelessWidget {
           ),
         ],
       ),
-      child: TextField(
+      child: TextFormField(
         controller: controller,
+        focusNode: focusNode,
         keyboardType: keyboardType,
+        validator: validator,
         obscureText: obscureText,
+        onChanged: (value) {
+          onChanged?.call(value);
+        },
+        textInputAction: nextFocus != null
+            ? TextInputAction.next
+            : TextInputAction.done,
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
+          hintText: hintText,
+          labelText: labelText,
           hintStyle: GoogleFonts.roboto(
             textStyle: TextStyle(
-              fontSize: 13.w,
+              fontSize: 13.sp,
               color: Colors.grey,
               fontWeight: FontWeight.w400,
             ),
           ),
-
-          hintText: hintText,
-          labelText: labelText,
-
           prefixIcon: prefcon != null
               ? Icon(prefcon, color: Colors.blue)
               : null,
@@ -71,22 +84,18 @@ class AuthCustomTextfield extends StatelessWidget {
             horizontal: 14,
             vertical: 14,
           ),
-
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,
           ),
-
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Colors.blue, width: 0.9),
           ),
-
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,
           ),
-
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide.none,

@@ -14,56 +14,54 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class RouteConfig {
-  static GoRouter returnRouter() {
-    return GoRouter(
-      initialLocation: RouteNames.splashScreen,
-      routes: [
-        GoRoute(
-          path: RouteNames.splashScreen,
-          builder: (context, state) => const SplashView(),
-        ),
-        GoRoute(
-          path: RouteNames.dashboard,
-          name: 'mainMenu',
-          builder: (context, state) => MainMenu(),
-        ),
-        GoRoute(
-          path: RouteNames.homeView,
-          builder: (context, state) => const HomeView(),
-        ),
-        GoRoute(
-          path: RouteNames.signInView,
-          builder: (context, state) => const LoginView(),
-        ),
-        GoRoute(
-          path: RouteNames.signUpView,
-          builder: (context, state) => const SignUpView(),
-        ),
-        GoRoute(
-          path: RouteNames.profileView,
-          builder: (context, state) => const ProfileView(),
-        ),
-        GoRoute(
-          path: RouteNames.voiceSpeachView,
-          builder: (context, state) => const VoiceSpeachView(),
-        ),
-        GoRoute(
-          path: RouteNames.chatVeiw,
-          builder: (context, state) => const ChatView(),
-        ),
-        GoRoute(
-          path: RouteNames.historyView,
-          builder: (context, state) => const HistoryView(),
-        ),
-        GoRoute(
-          path: RouteNames.serachByImageScreen,
-          builder: (context, state) => const SerachByImageScreen(),
-        ),
-        GoRoute(
-          path: RouteNames.premiumView,
-          builder: (context, state) => const PremiumView(),
-        ),
-      ],
-    );
-  }
+  static final GoRouter router = GoRouter(
+    initialLocation: RouteNames.splashScreen,
+    routes: [
+      GoRoute(
+        path: RouteNames.splashScreen,
+        builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: RouteNames.dashboard,
+        name: 'mainMenu',
+        builder: (context, state) => MainMenu(),
+      ),
+      GoRoute(
+        path: RouteNames.homeView,
+        builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: RouteNames.signInView,
+        builder: (context, state) => const LoginView(),
+      ),
+      GoRoute(
+        path: RouteNames.signUpView,
+        builder: (context, state) => SignUpView(),
+      ),
+      GoRoute(
+        path: RouteNames.profileView,
+        builder: (context, state) => const ProfileView(),
+      ),
+      GoRoute(
+        path: RouteNames.voiceSpeachView,
+        builder: (context, state) => const VoiceSpeachView(),
+      ),
+      GoRoute(
+        path: RouteNames.chatVeiw,
+        builder: (context, state) => const ChatView(),
+      ),
+      GoRoute(
+        path: RouteNames.historyView,
+        builder: (context, state) => const HistoryView(),
+      ),
+      GoRoute(
+        path: RouteNames.serachByImageScreen,
+        builder: (context, state) => const SerachByImageScreen(),
+      ),
+      GoRoute(
+        path: RouteNames.premiumView,
+        builder: (context, state) => const PremiumView(),
+      ),
+    ],
+  );
 }

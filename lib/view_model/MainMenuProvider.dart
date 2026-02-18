@@ -32,7 +32,7 @@ class MainMnuprovider extends ChangeNotifier {
 
   Future<void> changeScreen(int index) async {
     setLoading(true);
-    await Future.delayed(Duration(seconds: 1));
+    // await Future.delayed(Duration(seconds: 1));
     selectedIndex = index;
     setLoading(false);
     notifyListeners();

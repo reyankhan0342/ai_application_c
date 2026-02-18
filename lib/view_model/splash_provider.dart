@@ -16,7 +16,7 @@ class SplashProvider extends ChangeNotifier {
   Future<void> navigatorSplash(BuildContext context) async {
     await Future.delayed(Duration(seconds: 5));
     if (context.mounted) {
-      context.go(RouteNames.dashboard);
+      context.go(RouteNames.signInView);
     } else {
       log('message errror');
     }

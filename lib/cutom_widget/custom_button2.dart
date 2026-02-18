@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart' show SizeExtension;
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,15 +9,18 @@ class CustomButton2 extends StatefulWidget {
   final double? width;
   final String? image;
   final double height;
+
+  bool? loading = false;
   final VoidCallback? onTap;
   final BoxDecoration? decoration;
 
-  const CustomButton2({
+  CustomButton2({
     super.key,
     required this.height,
     this.decoration,
     this.image,
     this.onTap,
+    this.loading,
     this.title,
     this.width,
   });
@@ -35,7 +39,7 @@ class _CustomButton2State extends State<CustomButton2> {
         BorderRadius.circular(8);
 
     return Material(
-      color: Colors.blue,
+      color: Colors.white,
       borderRadius: BorderRadius.circular(7),
       elevation: _isPressed ? 2 : 6,
       child: InkWell(
@@ -57,16 +61,18 @@ class _CustomButton2State extends State<CustomButton2> {
               if (widget.image != null) Image.asset(widget.image!, width: 18),
               const SizedBox(width: 8),
 
-              Text(
-                widget.title ?? '',
-                style: GoogleFonts.roboto(
-                  textStyle: TextStyle(
-                    fontSize: 15.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              widget.loading == true
+                  ? SpinKitFadingCircle(color: Colors.blue, size: 50.0)
+                  : Text(
+                      widget.title ?? '',
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          fontSize: 15.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
             ],
           ),
         ),
