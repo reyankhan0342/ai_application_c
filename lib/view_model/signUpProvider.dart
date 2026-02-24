@@ -1,12 +1,16 @@
+import 'dart:async';
 import 'dart:developer';
 import 'dart:ffi';
 
+import 'package:ai_chat_app/core/app_route/routes.dart';
 import 'package:ai_chat_app/core/util/helper.dart';
+import 'package:ai_chat_app/cutom_widget/custom_dilog.dart';
 import 'package:ai_chat_app/cutom_widget/custom_snack_bar.dart';
 import 'package:ai_chat_app/data/model/sign_up_model.dart';
 import 'package:ai_chat_app/data/services/database_services.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignUpProvider extends ChangeNotifier {
   // final GlobalKey<FormState> _formKeySignUp = GlobalKey<FormState>();
@@ -40,7 +44,6 @@ class SignUpProvider extends ChangeNotifier {
   }
 
   bool _loading = false;
-
   bool get loading => _loading;
 
   setLoading(value) {
@@ -49,7 +52,6 @@ class SignUpProvider extends ChangeNotifier {
   }
 
   //// Register user
-
   Future<void> userRegister(BuildContext context) async {
     setLoading(true);
 
@@ -64,13 +66,20 @@ class SignUpProvider extends ChangeNotifier {
         userPassword: password,
       );
 
-      // Await the register call directly
-      await _databaseSevice.userAccountRegister(userModel).then((onValue) {
-        errorMessage = "User Account Created Successfully";
-        CustomSnackBar().snackbar(context, errorMessage);
-      });
+      await _databaseSevice.userAccountRegister(userModel);
+
+      setLoading(false);
+
+      SuccessDialog.show(context);
+
+      await Future.delayed(Duration(seconds: 20));
+
+      Navigator.pop(context);
+      context.go(RouteNames.dashboard);
+      notifyListeners();
     } catch (error) {
-      // Handle Firebase errors
+      setLoading(false);
+
       if (error.toString().contains('email-already-in-use')) {
         errorMessage = "This email is already registered";
       } else if (error.toString().contains('invalid-email')) {
@@ -82,8 +91,8 @@ class SignUpProvider extends ChangeNotifier {
       }
 
       CustomSnackBar().snackbar(context, errorMessage);
-    } finally {
-      setLoading(false);
     }
+
+    notifyListeners();
   }
 }

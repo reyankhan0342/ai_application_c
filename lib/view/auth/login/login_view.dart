@@ -144,6 +144,7 @@ class LoginView extends StatelessWidget {
 
                             SizedBox(height: 17),
                             CustomButton2(
+                              loading: provider.isloading,
                               height: 45.h,
                               width: screenWidth,
                               decoration: BoxDecoration(
@@ -156,15 +157,20 @@ class LoginView extends StatelessWidget {
                               ),
                               title: 'Sign In ',
                               onTap: () {
-                                // if (provider.formKeySignIn.currentState!.validate()) {
-                                //   SnackBar(content: Text('Login SucessFully '));
-                                // } else {
-                                //   SnackBar(content: Text('Error'));
-                                // }
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (_) => MainMenu()),
-                                );
+                                if (provider.formKeySignIn.currentState!
+                                    .validate()) {
+                                  provider.userLogin(context);
+                                } else {
+                                  // }
+
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(
+                                  //     builder: (_) => MainMenu(),
+                                  //   ),
+                                  // );
+                                }
+                                ;
                               },
                             ),
                             SizedBox(height: 15),
@@ -211,6 +217,10 @@ class LoginView extends StatelessWidget {
 
                             SizedBox(height: 20.h),
                             CustomButton2(
+                              loading: provider.isloading,
+                              onTap: () {
+                                provider.signInWithGoogle(context);
+                              },
                               image: AppIcons().google!,
                               height: 45.h,
                               decoration: BoxDecoration(
